@@ -5,6 +5,12 @@ using UnityEngine.SceneManagement;
 
 public class FinalWindowCommands : MonoBehaviour
 {
+    void Start()
+    {
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
+    }
+
     public void backMenu()
     {
         SceneManager.LoadScene("StartMenu");
