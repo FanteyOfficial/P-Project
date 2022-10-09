@@ -6180,6 +6180,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 815840613, guid: 704c0d6cc1662724494c3469f61ff34c, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1170469632, guid: 704c0d6cc1662724494c3469f61ff34c, type: 3}
       propertyPath: m_fontStyle
       value: 17

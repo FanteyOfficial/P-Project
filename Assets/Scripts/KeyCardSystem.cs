@@ -9,11 +9,16 @@ public class KeyCardSystem : MonoBehaviour
     [SerializeField] GameObject takeKeyUI;
     [SerializeField] GameObject keyTakenUI;
 
+    // [SerializeField] AudioClip plin;
+
+    // AudioSource audioSource;
+
     bool isTriggerGetKey = false;
 
     void Start()
     {
         CurrentLevel.keyCardTaken = false;
+        // audioSource = GetComponent<AudioSource>();
     }
 
     void Update()
@@ -28,6 +33,9 @@ public class KeyCardSystem : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.E))
             {
                 CurrentLevel.keyCardTaken = true;
+
+                // audioSource.PlayOneShot(plin);
+                // Invoke("stopAudio", 1f);
             }
         }
         if (CurrentLevel.keyCardTaken)
@@ -41,6 +49,11 @@ public class KeyCardSystem : MonoBehaviour
             keyTakenUI.SetActive(true);
         }
     }
+
+    /*void stopAudio()
+    {
+        audioSource.Stop();
+    }*/
 
     private void OnTriggerEnter(Collider other)
     {

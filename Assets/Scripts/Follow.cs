@@ -7,6 +7,12 @@ public class Follow : MonoBehaviour
 {
     [SerializeField] Transform target;
     [SerializeField] float chaseRange = 5f;
+    [SerializeField] Animator anim;
+
+    [SerializeField] AudioClip footstepsAudio;
+    [SerializeField] AudioClip verse;
+
+    AudioSource audioSource;
 
     NavMeshAgent navMeshAgent;
     //float distanceToTarget = Mathf.Infinity;
@@ -15,6 +21,7 @@ public class Follow : MonoBehaviour
     void Start()
     {
         navMeshAgent = GetComponent<NavMeshAgent>();
+        audioSource = GetComponent<AudioSource>();
     }
 
     void Update()
@@ -23,7 +30,15 @@ public class Follow : MonoBehaviour
 
         if (distanceToTarget <= chaseRange)
         {
+            anim.enabled = true;
             navMeshAgent.SetDestination(target.position);
+            audioSource.PlayOneShot(footstepsAudio);
+            audioSource.PlayOneShot(verse);
+        }
+        else
+        {
+            anim.enabled = false;
+            audioSource.Stop();
         }
     }
 
